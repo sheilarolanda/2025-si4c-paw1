@@ -1,0 +1,13 @@
+/* element selector */
+body{
+    background-color: #FFD8DF;
+    color: black;\
+    font-family: Verdana;
+}
+.text-center {
+}
+.txt-center { text-align: center;}
+.bg-warning { background-color: #FFAAB8; border-radius: 20px 0px 20px 0px;}
+.txt-black { color: black;}
+.p-1 { padding: 50px; } /* memberi jarak sisi dalam border */
+.m-1 { margin: 20px; }/* memberi jarak sisi luar dalam */
