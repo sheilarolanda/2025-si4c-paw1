@@ -1,13 +1,16 @@
 let npm = document.getElementById("npm");
 let nama = document.getElementById("nama");
+let imageurl = document.getElementById("imageurl");
 
 function simpan() {
-    console.log(npm.value)
-    console.log(nama.value)
+    console.log(npm.value);
+    console.log(nama.value);
+    console.log(imageurl.value);
 
     // localStorage.setItem("npm", npm.value)
     // localStorage.setItem("nama", nama.value)
 
+    // cek apakah local storage belum ada isi/value
     if (localStorage.getItem("mahasiswa") == null) {
         // simpan array kosong []
         localStorage.setItem("mahasiswa", "[]")
@@ -21,8 +24,9 @@ function simpan() {
     // simpan value npm dan nama ke dalam object data
     data.push({
         npm: npm.value,
-        nama: nama.value
-    })
+        nama: nama.value,
+        imageurl: imageurl.value
+    });
     console.log(data)
 
     //simpan data terbaru ke dalam localstorage
@@ -39,10 +43,13 @@ function tampil(){
     //clear element ul id=list=mhs
     document.getElementById("list-mhs").innerHTML=""
     //lakukan perulangan (forEach)
-    hasil.forEach(Element => { 
+    hasil.forEach(element => { 
         //console.log(Element)
+        let imgTag = element.imageurl ? `<img src="${element.imageurl}" alt="Gambar Mahasiswa" 
+        style="width:50px; height:auto;" onerror="this.style.display='none';">` : '';  
         document.getElementById("list-mhs").
-        innerHTML += `<li>${Element.npm}${Element.nama}</li>`
+        innerHTML += `<div class="col-lg-4 col-md-6"><h4 class="text-primary">${element.nama}</h4> <h6 class="text-danger">${element.npm}</h6></div>
+         <img src="${element.imageurl}" alt="test">`
     });
 }
 
